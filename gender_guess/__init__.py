@@ -24,7 +24,8 @@ __version__ = "0.1beta"
 import gender_guess._gender as g
 import os.path
 
-g.FIRST_NAME_FILE = os.path.join(os.path.dirname(__file__), "nam_dict.txt")
+g.cvar.first_file_name = os.path.join(
+    os.path.dirname(__file__), "nam_dict.txt")
 
 
 class Country(object):
@@ -128,4 +129,3 @@ def guess_gender(first_name, compare_mode  = CompareMode.COMPARE_EXPANDED_UMLAUT
 	    return chr(g.get_gender_unicode(first_name, compare_mode, country))
 	else:
 	    return chr(g.get_gender(first_name, compare_mode, country))
-

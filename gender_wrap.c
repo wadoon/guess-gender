@@ -2951,6 +2951,7 @@ static swig_module_info swig_module = {swig_types, 1, 0, 0, 0, 0};
 
 
 #include "gen_ext.h"
+char *first_file_name;
 
 
 SWIGINTERN swig_type_info*
@@ -2991,20 +2992,6 @@ SWIGINTERNINLINE PyObject *
 SWIG_From_char  (char c) 
 { 
   return SWIG_FromCharPtrAndSize(&c,1);
-}
-
-
-SWIGINTERNINLINE PyObject * 
-SWIG_FromCharPtr(const char *cptr)
-{ 
-  return SWIG_FromCharPtrAndSize(cptr, (cptr ? strlen(cptr) : 0));
-}
-
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_int  (int value)
-{
-  return PyInt_FromLong((long) value);
 }
 
 
@@ -3081,6 +3068,20 @@ SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
     }
   }
   return SWIG_TypeError;
+}
+
+
+SWIGINTERNINLINE PyObject * 
+SWIG_FromCharPtr(const char *cptr)
+{ 
+  return SWIG_FromCharPtrAndSize(cptr, (cptr ? strlen(cptr) : 0));
+}
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_int  (int value)
+{
+  return PyInt_FromLong((long) value);
 }
 
 
@@ -3234,6 +3235,34 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN int Swig_var_first_file_name_set(PyObject *_val) {
+  {
+    char *cptr = 0; size_t csize = 0; int alloc = SWIG_NEWOBJ;
+    int res = SWIG_AsCharPtrAndSize(_val, &cptr, &csize, &alloc);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""first_file_name""' of type '""char *""'");
+    }
+    if (first_file_name) free((char*)first_file_name);
+    if (alloc == SWIG_NEWOBJ) {
+      first_file_name = cptr;
+    } else {
+      first_file_name = csize ? (char *)(char *)memcpy((char *)malloc((csize)*sizeof(char)), cptr, sizeof(char)*(csize)) : 0;
+    }
+  }
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_first_file_name_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_FromCharPtr(first_file_name);
+  return pyobj;
+}
+
+
 SWIGINTERN PyObject *_wrap_get_gender(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   char *arg1 ;
@@ -4427,7 +4456,8 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "NAME_NOT_FOUND",SWIG_From_char((char)(' ')));
   SWIG_Python_SetConstant(d, "ERROR_IN_NAME",SWIG_From_char((char)('E')));
   SWIG_Python_SetConstant(d, "INTERNAL_ERROR_GENDER",SWIG_From_char((char)('I')));
-  SWIG_Python_SetConstant(d, "FIRST_NAME_FILE",SWIG_FromCharPtr("nam_dict.txt"));
+  PyDict_SetItemString(md,(char*)"cvar", SWIG_globals());
+  SWIG_addvarlink(SWIG_globals(),(char*)"first_file_name",Swig_var_first_file_name_get, Swig_var_first_file_name_set);
   SWIG_Python_SetConstant(d, "LENGTH_FIRST_NAME",SWIG_From_int((int)(40)));
   SWIG_Python_SetConstant(d, "GENDER_COMPARE_EXPANDED_UMLAUTS",SWIG_From_int((int)(0)));
   SWIG_Python_SetConstant(d, "GENDER_TRACE_ALL_COUNTRIES",SWIG_From_int((int)(0)));

@@ -81,9 +81,11 @@
 
 /****  File with list of first names and gender.  ****/
 /****  TO-DO:  Add full pathname  ****/
-char *first_file_name = "nam_dict.txt";   
-#define FIRST_FILE_NAME  first_file_name     
-#define FIRST_FILE_NAME  "abc.txt"     
+//#define FIRST_NAME_FILE  "nam_dict.txt"
+
+/****  If you need a configurable filename, do it this way:  ****/
+char *first_file_name;
+#define FIRST_NAME_FILE  first_file_name
 
 /****  TO-DO:  If you use a bigger field length  ****/
 /****    for first names, change this macro      ****/
@@ -191,11 +193,11 @@ int get_gender (char first_name[], int compare_mode, int country);
 int get_gender_unicode (char first_name[], int compare_mode, int country);
 int get_gender_utf8 (char first_name[], int compare_mode, int country);
 
-int check_nickname (char first_name_1[], 
+int check_nickname (char first_name_1[],
          char first_name_2[], int compare_mode, int country);
-int check_nickname_unicode (char first_name_1[], 
+int check_nickname_unicode (char first_name_1[],
          char first_name_2[], int compare_mode, int country);
-int check_nickname_utf8 (char first_name_1[], 
+int check_nickname_utf8 (char first_name_1[],
          char first_name_2[], int compare_mode, int country);
 
 int find_similar_name (char first_name[], int country,

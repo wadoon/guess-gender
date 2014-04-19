@@ -1106,7 +1106,7 @@ static void read_unicode_line (FILE *fr, char text[], int two_byte_len)
               /****  unicode EOL found  ****/
               break;
             }
-         
+
           text[i] = (char) (k%256);
           i++;
           text[i] = (char) (k/256);
@@ -1882,7 +1882,7 @@ static void print_number_g (char *text, int number, int mode)
     {
      number = number % 100;
      printf (".%d", (int)(number/10));
-     
+
      if (number % 10 != 0)
        {
         printf ("%d", number % 10);
@@ -2821,7 +2821,7 @@ static int multiply_frequency (int a, int b)
     {
       b = 13;
     }
-  
+
   if (a < 0)
     {
       return (b);
@@ -3734,7 +3734,7 @@ static void standardize_arabic_name (char dest[], char src[], int len)
 
 static char nam_array[20] [DATA_NAME_LENGTH+1];
 
-static int find_similar_name_internal 
+static int find_similar_name_internal
     (char first_name[], int country, char result_string[], int len)
 {
   long l0,l2,pos_f;
@@ -3955,7 +3955,7 @@ static int find_similar_name_internal
         }
 
       /****  compare names  ****/
-      delete_chars_to_ignore 
+      delete_chars_to_ignore
            (this_name_0, this_name, flag_sh, DATA_NAME_LENGTH+1);
 
       lev_mode = LEV_G_COMPARE_GERMAN | EXPAND_PARAM_1;
@@ -4312,11 +4312,11 @@ int get_gender (char first_name[], int compare_mode, int country)
 }
 
 
-int check_nickname (char first_name_1[], 
+int check_nickname (char first_name_1[],
          char first_name_2[], int compare_mode, int country)
 {
   int i;
-  i = check_nickname_internal 
+  i = check_nickname_internal
          (first_name_1, first_name_2, compare_mode, country);
   return (i);
 }
@@ -4328,7 +4328,7 @@ int find_similar_name (char first_name[],
   int  i,k,n;
   strcpy (output_buffer,"");
 
-  n = find_similar_name_internal 
+  n = find_similar_name_internal
          (first_name, country, result_string, len);
 
   (void) delete_chars_to_ignore (result_string, result_string, 0, len);
@@ -4364,14 +4364,14 @@ int get_gender_unicode
 }
 
 
-int check_nickname_unicode (char first_name_1[], 
+int check_nickname_unicode (char first_name_1[],
          char first_name_2[], int compare_mode, int country)
 {
   int i;
   conv_from_unicode_line (input_buffer_1, first_name_1, 101);
   conv_from_unicode_line (input_buffer_2, first_name_2, 101);
 
-  i = check_nickname_internal 
+  i = check_nickname_internal
          (input_buffer_1, input_buffer_2, compare_mode, country);
   return (i);
 }
@@ -4384,7 +4384,7 @@ int find_similar_name_unicode (char first_name[],
   conv_from_unicode_line (input_buffer_1, first_name, 101);
   strcpy (output_buffer,"");
 
-  n = find_similar_name_internal 
+  n = find_similar_name_internal
          (input_buffer_1, country, output_buffer, 1001);
   make_unicode_line (result_string, output_buffer, two_byte_len);
 
@@ -4418,14 +4418,14 @@ int get_gender_utf8 (char first_name[], int compare_mode, int country)
 }
 
 
-int check_nickname_utf8 (char first_name_1[], 
+int check_nickname_utf8 (char first_name_1[],
          char first_name_2[], int compare_mode, int country)
 {
   int i;
   conv_from_utf8_line (input_buffer_1, first_name_1, 101);
   conv_from_utf8_line (input_buffer_2, first_name_2, 101);
 
-  i = check_nickname_internal 
+  i = check_nickname_internal
          (input_buffer_1, input_buffer_2, compare_mode, country);
   return (i);
 }
@@ -4438,7 +4438,7 @@ int find_similar_name_utf8 (char first_name[],
   conv_from_utf8_line (input_buffer_1, first_name, 101);
   strcpy (output_buffer,"");
 
-  n = find_similar_name_internal 
+  n = find_similar_name_internal
          (input_buffer_1, country, output_buffer, 1001);
   make_utf8_line (result_string, output_buffer, one_byte_len);
 
@@ -5129,7 +5129,7 @@ void print_statistics (int get_full_statistics)
       strncpy (this_name, text+2, POS_UMLAUT_INFO-2);
       this_name [POS_UMLAUT_INFO-2] = '\0';
 
-      n = strcmp_search (this_name, last_name, 
+      n = strcmp_search (this_name, last_name,
               EXPAND_PARAM_1 | EXPAND_PARAM_2, ' ', NULL);
 
       if (text[0] == '='  &&  n != 0)
@@ -5511,7 +5511,7 @@ int main (int argc, char *argv[])
                                  | GENDER_DEFAULT_TRACE_MODE );
         }
 
-      i = get_gender (argv[2], 
+      i = get_gender (argv[2],
               GENDER_COMPARE_EXPANDED_UMLAUTS, country);
 
       trace_info ("final result for", argv[2], NULL,i, NULL);
@@ -5640,6 +5640,7 @@ int main (int argc, char *argv[])
   cleanup_gender();
   return (0);
 }
+
 
 #endif
 
