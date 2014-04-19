@@ -14,6 +14,6 @@ install:
 # command to run tests
 script: 
   - cd test; python test.py
-  - coverage run --source=gender_guess nosetests
+  - cd test; coverage run --source=gender_guess test.py
 after_success:
   coveralls
