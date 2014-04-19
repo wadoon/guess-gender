@@ -7,7 +7,7 @@ from distutils.extension import Extension
 _gender = Extension('gender_guess._gender', ['gender.i', 'gender.c'],
                     swig_opts=['-modern', '-Wall', '-outdir','gender_guess'])
 
-setup(name='get-gender_guess',
+setup(name='gender-guess',
       version='0.1',
       description='''
 
