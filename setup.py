@@ -5,7 +5,7 @@ from distutils.extension import Extension
 
 
 _gender = Extension('gender_guess._gender', ['gender.i', 'gender.c'],
-                    swig_opts=['-modern', '-Wall', '-outdir','notwanted-pwrapper'])
+                    swig_opts=['-modern', '-Wall'])#, '-outdir','notwanted-pwrapper'])
 
 setup(name='gender-guess',
       version='0.1',
