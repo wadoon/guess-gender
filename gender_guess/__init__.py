@@ -21,7 +21,10 @@ __author__ = "Alexander Weigl"
 __date__ = "2014-04-18"
 __version__ = "0.1beta"
 
-import gender.gender as g
+import gender_guess._gender as g
+import os.path
+
+g.FIRST_NAME_FILE = os.path.join(os.path.dirname(__file__), "nam_dict.txt")
 
 
 class Country(object):
@@ -120,6 +123,9 @@ def _country_valid(country):
 def _compare_mode_valid(cmp_mode):
     return cmp_mode in _get_values(CompareMode)
 
-def guess_gender(first_name, compare_mode, country):
-    return chr(g.get_gender(first_name, compare_mode, country))
+def guess_gender(first_name, compare_mode  = CompareMode.COMPARE_EXPANDED_UMLAUTS, country = Country.ANY_COUNTRY):
+	if type(first_name) is unicode:
+	    return chr(g.get_gender_unicode(first_name, compare_mode, country))
+	else:
+	    return chr(g.get_gender(first_name, compare_mode, country))
 

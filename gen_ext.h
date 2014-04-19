@@ -81,12 +81,9 @@
 
 /****  File with list of first names and gender.  ****/
 /****  TO-DO:  Add full pathname  ****/
-#define FIRST_NAME_FILE  "nam_dict.txt"
-
-/****  If you need a configurable filename, do it this way:  ****/
-/****     char *first_file_name = "<your_file_name>";    ****/
-/****     #define FIRST_FILE_NAME  first_file_name       ****/
-
+char *first_file_name = "nam_dict.txt";   
+#define FIRST_FILE_NAME  first_file_name     
+#define FIRST_FILE_NAME  "abc.txt"     
 
 /****  TO-DO:  If you use a bigger field length  ****/
 /****    for first names, change this macro      ****/
